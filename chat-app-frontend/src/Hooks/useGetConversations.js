@@ -1,10 +1,11 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
+import { UseAppContext } from "../Context/AppContextProvider"
 
 
 const useGetConversations = () => {
-    const backendUrl = "http://localhost:4000"
+    const { backendUrl } = UseAppContext()
     const [loading, setLoading] = useState(false)
     const [conversations, setConversations] = useState([])
 

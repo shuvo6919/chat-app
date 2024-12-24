@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import useConversation from '../Zustand/useConversation';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { UseAppContext } from '../Context/AppContextProvider';
 
 const useGetMessages = () => {
-    const backendUrl = "http://localhost:4000"
-
+    const { backendUrl } = UseAppContext()
     const [loading, setLoading] = useState(false)
     const { selectedConversation, setSelectedConversation, messages, setMessages } = useConversation()
 

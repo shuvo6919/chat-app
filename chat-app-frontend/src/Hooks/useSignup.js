@@ -2,12 +2,12 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import axios from 'axios';
 import { useAuthContext } from "../Context/AuthContextProvider";
+import { UseAppContext } from "../Context/AppContextProvider";
 const useSignup = () => {
 
 
     const { authUser, setAuthUser } = useAuthContext()
-    const backendUrl = "http://localhost:4000"
-
+    const { backendUrl } = UseAppContext()
     const [loading, setLoading] = useState(false)
 
     const signup = async ({ fullName, userName, password, confirmPassword, gender }) => {

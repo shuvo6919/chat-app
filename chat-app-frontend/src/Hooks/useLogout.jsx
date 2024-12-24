@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useAuthContext } from '../Context/AuthContextProvider';
 import useConversation from '../Zustand/useConversation';
+import { UseAppContext } from '../Context/AppContextProvider';
 
 const useLogout = () => {
-    const backendUrl = "http://localhost:4000"
-
+    const { backendUrl } = UseAppContext()
     const { setAuthUser } = useAuthContext()
     const [loading, setLoading] = useState(false)
 
