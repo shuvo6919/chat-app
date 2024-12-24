@@ -26,6 +26,7 @@ import Login from "./Pages/Login/Login";
 import Signup from "./Pages/Signup/Signup";
 import AuthContextProvider, { useAuthContext } from "./Context/AuthContextProvider";
 import SocketContextProvider from "./Context/SocketContextProvider";
+import AppContextProvider from "./Context/AppContextProvider";
 
 
 
@@ -62,11 +63,13 @@ const MainApp = () => {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthContextProvider>
-      <SocketContextProvider>
-        <MainApp></MainApp>
-      </SocketContextProvider>
-    </AuthContextProvider>
+    <AppContextProvider>
+      <AuthContextProvider>
+        <SocketContextProvider>
+          <MainApp></MainApp>
+        </SocketContextProvider>
+      </AuthContextProvider>
+    </AppContextProvider>
   </React.StrictMode>
 );
 

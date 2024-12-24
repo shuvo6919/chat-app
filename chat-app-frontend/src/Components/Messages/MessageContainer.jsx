@@ -4,16 +4,19 @@ import MessageInput from './MessageInput';
 import { TiMessages } from "react-icons/ti";
 import useConversation from '../../Zustand/useConversation';
 import { useAuthContext } from '../../Context/AuthContextProvider';
+import { UseAppContext } from '../../Context/AppContextProvider';
 
 
 const MessageContainer = () => {
+    const { showMenu, setShowMenu } = UseAppContext()
+
     const { selectedConversation, setSelectedConversation } = useConversation()
 
     useEffect(() => {
         return () => setSelectedConversation(null)
     }, [setSelectedConversation])
     return (
-        <div className='w-[90vw] md:max-w-[50vw] md:min-w-[450px]  flex flex-col'>
+        <div className={` ${showMenu ? "hidden md:flex" : ""}  w-[90vw] md:max-w-[50vw] md:min-w-[450px]  flex flex-col`}>
 
             {
                 !selectedConversation

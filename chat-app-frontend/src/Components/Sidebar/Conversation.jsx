@@ -1,8 +1,11 @@
 import React from 'react';
 import useConversation from '../../Zustand/useConversation';
 import { useSocketContex } from '../../Context/SocketContextProvider';
+import { UseAppContext } from '../../Context/AppContextProvider';
 
 const Conversation = ({ conversation, lastIdx, emoji }) => {
+    const { showMenu, setShowMenu } = UseAppContext()
+
     const { selectedConversation, setSelectedConversation } = useConversation()
 
     const isSelected = selectedConversation?._id === conversation._id
@@ -14,7 +17,7 @@ const Conversation = ({ conversation, lastIdx, emoji }) => {
     return (
         <>
             <div className={`flex gap-2 items-center hover:bg-sky-500 rounded p-2 py-1  cursor-pointer ${isSelected && "bg-sky-500"}`}
-                onClick={() => setSelectedConversation(conversation)}
+                onClick={() => { setSelectedConversation(conversation); setShowMenu(!showMenu) }}
             >
                 <div className={`avatar ${isOnline ? "online" : ""}`}>
                     <div className="w-12 rounded-full">
