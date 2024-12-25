@@ -20,7 +20,7 @@ connectDB()
 app.use(express.json())
 app.use(cookieParser()); // Enables cookie parsing
 app.use(cors({
-    origin: "http://localhost:5173", // Frontend URL
+    origin: ["http://localhost:5173", "https://chat-app-backend-hd4x.onrender.com"],
     credentials: true, // Allow cookies
 }));
 
