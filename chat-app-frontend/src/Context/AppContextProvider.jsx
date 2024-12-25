@@ -9,7 +9,7 @@ export const UseAppContext = () => {
 const AppContextProvider = ({ children }) => {
 
     const [showMenu, setShowMenu] = useState(false)
-    const backendUrl = "http://localhost:4000"
+    const backendUrl = import.meta.env.VITE_BACKEND_URL
 
     const info = {
         showMenu, setShowMenu, backendUrl
